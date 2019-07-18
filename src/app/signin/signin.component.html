@@ -1,0 +1,31 @@
+<div class="form-container">
+  <h3>Please Sign In</h3>
+  <form [formGroup]="loginForm" autocomplete="off">
+    <p>
+      <mat-form-field appearance="outline" class="loginform">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" formControlName="email">
+        <mat-error *ngIf="loginForm.hasError('required', 'email')">This field is required</mat-error>
+        <mat-error *ngIf="loginForm.hasError('email', 'email')">This is not a valid email address</mat-error>
+        <mat-hint>This is the place where you input your email address</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="loginform">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <mat-error>This field is required</mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        <mat-hint>This is the place where you input your password</mat-hint>
+     </mat-form-field>
+    </p>
+  </form>
+  <p>
+    <mat-slide-toggle color="primary" class="slider" [(ngModel)]="rememberMe">Remember me</mat-slide-toggle>
+  </p>
+  <p>
+    <button class="btn btn-lg btn-primary" (click)="submitLoginForm()" [disabled]="loginForm.invalid">Sign in</button>
+  </p>
+</div>

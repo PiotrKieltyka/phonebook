@@ -1,0 +1,23 @@
+.header {
+    margin: 3rem;
+    border-radius: 2rem;
+}
+
+.container {
+    font-size: 1.3rem;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.material-icons {
+    font-size: 4.2rem;
+}
+
+.formfield {
+    margin: 2rem;
+    min-width: 20rem;
+    max-width: 30rem;
+}

@@ -1,0 +1,25 @@
+<app-add-phonecard-form (submitForm)="handleFormSubmit($event)"></app-add-phonecard-form>
+
+<div class="container">
+    <h4>Angular Material Table with sorting</h4>
+    <mat-table [dataSource]="sortedData$ | async" matSort (matSortChange)="sortData($event)" class="table" role="grid">
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header="id">Id</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header="name">Name</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="phone">
+            <mat-header-cell *matHeaderCellDef mat-sort-header="phone">Phone</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.phone }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header="email">Email</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.email }}</mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>

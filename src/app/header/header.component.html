@@ -1,0 +1,30 @@
+<div class="navbar">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="btn navbar-brand">
+                    <span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
+                    Phonebook App
+                </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ng-container *ngFor="let headerItem of headerItems">
+                    <div 
+                        *ngIf="!headerItem.showMenuItem$ || (headerItem.showMenuItem$ | async)" 
+                        class="nav navbar-nav navbar-right"
+                        (click)="headerItem.clickHandler ? headerItem.clickHandler() : null"
+                        >
+                        <a href="#" class="btn btn-default nav-buttons" routerLinkActive="true" [routerLink]="headerItem.url">{{ headerItem.name }}</a>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </nav>
+</div>

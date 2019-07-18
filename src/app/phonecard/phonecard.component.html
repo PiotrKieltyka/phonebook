@@ -1,0 +1,10 @@
+<div class="phonecards">
+    <div id="phonecard" class="phonecard" *ngFor="let phonecard of phonecards">
+        <h3>{{ phonecard.name }}</h3>
+        <hr>
+        <h6>{{ phonecard.birthday }}</h6>
+        <h5><a href="mailto:{{ phonecard.email }}">{{ phonecard.email }}</a></h5>
+        <h5>{{ phonecard.phone }}</h5>
+        <img src="{{ phonecard.avatar }}" alt="{{ phonecard.avatar }}" width="300px" height="300px">
+    </div>
+</div>

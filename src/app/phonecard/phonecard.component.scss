@@ -1,0 +1,64 @@
+.phonecards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.phonecard {
+    font-family: 'Roboto';
+    margin: 40px auto;
+    position: relative;
+    box-shadow: 0px 20px 25px 0px rgba(100, 100, 100, .5), 0px 0px 25px rgba(100, 100, 100, .5);
+    overflow: hidden;
+    text-align: center;
+    border-top-left-radius: 30% 20%;
+    border-top-right-radius: 30% 20%;
+    border-bottom-right-radius: 60%;
+    border-bottom-left-radius: 40% 30%;
+    animation-delay: 1s;
+    animation: organic 10s infinite alternate ease-in-out;
+    will-change: border-radius;
+}
+
+.phonecard:hover {
+    animation-play-state: paused;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(0,0,0,.8);
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 0;
+    padding: 0;
+    color: rgba(0,0,0,.8);
+    text-shadow: 0px 0px 1px rgba(109, 109, 109, .6);
+}
+
+h5 {
+    font-weight: 300;
+    text-shadow: 0px 0px 1px rgba(119, 119, 119, .6);
+}
+
+h6 {
+    font-weight: 100;
+    text-shadow: 0px 0px 1px rgba(119, 119, 119, .6);
+}
+
+hr {
+    margin-top: 10px;
+    width: 20rem;
+    text-shadow: 0px 0px 1px rgba(119, 119, 119, .6);
+}
+
+@keyframes organic {
+    0% { border-radius: 30% 20% 30% 20% / 30% 30% 50% 50% }
+    25% { border-radius: 15% 10% 10% 30% / 40% 40% 60% 60% }
+    50% { border-radius: 40% 40% 50% 40% / 10% 10% 30% 20% }
+    100% { border-radius: 30% 20% 30% 20% / 30% 30% 50% 50% }
+}

@@ -1,0 +1,53 @@
+<div class="jumbotron text-center header">
+    <i class="material-icons">settings_input_svideo</i>
+    <h2>Please fill in the fields below to add new phonebook item</h2>
+</div>
+<div class="container">
+    <form [formGroup]="phonecardForm">
+        <mat-form-field class="formfield">
+            <input matInput type="text" placeholder="Name" formControlName="name">
+            <mat-error>This field is required</mat-error>
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="formfield">
+            <input matInput type="tel" placeholder="Phone number" formControlName="phone">
+            <mat-error>This field is required</mat-error>
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="formfield">
+            <input matInput type="email" placeholder="Email address" formControlName="email">
+            <mat-error *ngIf="phonecardForm.hasError('required', 'email')">This field is required</mat-error>
+            <mat-error *ngIf="phonecardForm.hasError('email', 'email')">Not valid email address</mat-error>
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="formfield">
+            <input matInput [matDatepicker]="dp" placeholder="Choose a birth date" formControlName="birthdate">
+            <mat-error>This field is required</mat-error>
+            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp disabled="false"></mat-datepicker>
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="formfield">
+            <input matInput type="url" placeholder="Avatar url address" formControlName="avatar">
+            <mat-error>This field is required</mat-error>
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </form>
+</div>
+<div class="container">
+    <button class="btn btn-primary" (click)="handleSubmit()" [disabled]="phonecardForm.invalid">Add Phonebook Item</button>
+</div>
