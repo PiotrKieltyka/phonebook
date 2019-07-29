@@ -13,7 +13,7 @@ export class StateService {
   private sortedDataSubject = new BehaviorSubject([]);
   sortedData$: Observable<PhonebookItemProps[]> = this.sortedDataSubject.asObservable();
 
-  private _phoneCards: PhonebookItemProps[];
+  private _phonecards: PhonebookItemProps[];
 
   private sort: Sort = {
     active: '',
@@ -25,11 +25,11 @@ export class StateService {
   constructor() { }
 
   get phonecards(): PhonebookItemProps[] {
-    return this._phoneCards;
+    return this._phonecards;
   }
 
   set phonecards(phonecards: PhonebookItemProps[]) {
-    this._phoneCards = phonecards;
+    this._phonecards = phonecards;
   }
 
   initialiseState(): void {
@@ -59,13 +59,13 @@ export class StateService {
 
   sortData(sort?: Sort) {
     this.sort = sort ? sort : this.sort;
-    const phoneCardsCopy = [...this.phonecards];
+    const phonecardsCopy = [...this.phonecards];
     let sortedData;
 
     if (!this.sort.active || this.sort.direction === '') {
-      sortedData = phoneCardsCopy;
+      sortedData = phonecardsCopy;
     } else {
-      sortedData = phoneCardsCopy.sort((a, b) => {
+      sortedData = phonecardsCopy.sort((a, b) => {
         const isAsc = this.sort.direction === 'asc';
         switch (this.sort.active) {
           case 'id': return compare(a.id, b.id, isAsc);
@@ -79,12 +79,9 @@ export class StateService {
     this.sortedDataSubject.next(sortedData);
   }
 
-  updateState(phoneCard: PhonebookItemProps): void {
-    const newContact = { ...phoneCard, id: ++this.lastIdNumber };
-    this.phonecards = [
-      ...this.phonecards,
-      newContact
-    ];
+  updateState(phonecard: PhonebookItemProps): void {
+    const newContact = { id: ++this.lastIdNumber, ...phonecard };
+    this.phonecards = [ ...this.phonecards, newContact ];
     this.updateLocalStorage();
     this.sortData();
   }

@@ -7,7 +7,7 @@
         <mat-form-field class="formfield">
             <input matInput type="text" placeholder="Name" formControlName="name">
             <mat-error>This field is required</mat-error>
-            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <button mat-button *ngIf="phonecardForm.value.name" matSuffix mat-icon-button aria-label="Clear" (click)="phonecardForm.patchValue({name: ''})">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
@@ -15,7 +15,7 @@
         <mat-form-field class="formfield">
             <input matInput type="tel" placeholder="Phone number" formControlName="phone">
             <mat-error>This field is required</mat-error>
-            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <button mat-button *ngIf="phonecardForm.value.phone" matSuffix mat-icon-button aria-label="Clear" (click)="phonecardForm.patchValue({phone: ''})">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
@@ -24,17 +24,17 @@
             <input matInput type="email" placeholder="Email address" formControlName="email">
             <mat-error *ngIf="phonecardForm.hasError('required', 'email')">This field is required</mat-error>
             <mat-error *ngIf="phonecardForm.hasError('email', 'email')">Not valid email address</mat-error>
-            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <button mat-button *ngIf="phonecardForm.value.email" matSuffix mat-icon-button aria-label="Clear" (click)="phonecardForm.patchValue({email: ''})">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
 
         <mat-form-field class="formfield">
-            <input matInput [matDatepicker]="dp" placeholder="Choose a birth date" formControlName="birthdate">
+            <input matInput [matDatepicker]="dp" placeholder="Choose a birth date" formControlName="birthday">
             <mat-error>This field is required</mat-error>
             <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
             <mat-datepicker #dp disabled="false"></mat-datepicker>
-            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <button mat-button *ngIf="phonecardForm.value.birthday" matSuffix mat-icon-button aria-label="Clear" (click)="phonecardForm.patchValue({birthday: ''})">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
@@ -42,7 +42,7 @@
         <mat-form-field class="formfield">
             <input matInput type="url" placeholder="Avatar url address" formControlName="avatar">
             <mat-error>This field is required</mat-error>
-            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <button mat-button *ngIf="phonecardForm.value.avatar" matSuffix mat-icon-button aria-label="Clear" (click)="phonecardForm.patchValue({avatar: ''})">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>

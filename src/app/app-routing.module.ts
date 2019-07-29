@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { SigninComponent } from './signin/signin.component';
-import { AuthorizationGuard } from '../shared/guards/authorization.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },

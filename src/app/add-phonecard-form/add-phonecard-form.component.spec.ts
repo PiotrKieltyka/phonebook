@@ -1,6 +1,10 @@
+import { ReactiveFormsModule } from '@angular/forms';
+import { AdminComponent } from './../admin/admin.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddPhonecardFormComponent } from './add-phonecard-form.component';
+import { MaterialModule } from 'src/shared/modules/material.module';
+import { StateService } from 'src/shared/services/state.service';
 
 describe('AddPhonecardFormComponent', () => {
   let component: AddPhonecardFormComponent;
@@ -8,7 +12,17 @@ describe('AddPhonecardFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddPhonecardFormComponent ]
+      declarations: [
+        AddPhonecardFormComponent,
+        AdminComponent
+      ],
+      imports: [
+        MaterialModule,
+        ReactiveFormsModule
+      ],
+      providers: [
+        StateService
+      ]
     })
     .compileComponents();
   }));
@@ -16,10 +30,9 @@ describe('AddPhonecardFormComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AddPhonecardFormComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

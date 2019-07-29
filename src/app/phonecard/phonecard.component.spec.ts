@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PhonecardComponent } from './phonecard.component';
+import { StateService } from 'src/shared/services/state.service';
 
 describe('PhonecardComponent', () => {
   let component: PhonecardComponent;
@@ -8,7 +9,12 @@ describe('PhonecardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhonecardComponent ]
+      declarations: [
+        PhonecardComponent
+      ],
+      providers: [
+        StateService
+      ]
     })
     .compileComponents();
   }));
@@ -16,10 +22,9 @@ describe('PhonecardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PhonecardComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

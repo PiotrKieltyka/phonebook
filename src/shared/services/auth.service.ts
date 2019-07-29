@@ -11,7 +11,7 @@ import { User } from 'src/model/user.model';
 export class AuthService {
 
   private userSubject = new BehaviorSubject<User>(ANONYMOUS_USER);
-  user$: Observable<User> = this.userSubject.asObservable().pipe(filter(user => !!user));
+  user$: Observable<User> = this.userSubject.asObservable().pipe(filter(user => !!user)); // filter for 'null pointer exception'
 
   isLoggedIn$: Observable<boolean> = this.user$.pipe(map(user => !!user.email));
   isLoggedOut$: Observable<boolean> = this.isLoggedIn$.pipe(map(isLoggedIn => !isLoggedIn));
@@ -24,7 +24,7 @@ export class AuthService {
   private getUserFromSessionStorage(): void {
     const user = JSON.parse(sessionStorage.getItem('User'));
     if (user) {
-      this.userSubject.next(user)
+      this.userSubject.next(user);
     }
   }
 

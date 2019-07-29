@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Sort } from '@angular/material/sort';
-import { PhonebookItemProps } from 'src/model/phonebookItemProps.model';
 import { StateService } from 'src/shared/services/state.service';
 
 @Component({
@@ -10,9 +9,7 @@ import { StateService } from 'src/shared/services/state.service';
 })
 export class AdminComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'phone', 'email'];
-  private phonecards: PhonebookItemProps[];
-  private sortedData: PhonebookItemProps[];
+  displayedColumns: string[] = ['id', 'name', 'phone', 'email', 'birthday'];
   private sortedData$ = this.stateService.sortedData$;
 
   constructor(
@@ -32,6 +29,3 @@ export class AdminComponent implements OnInit {
   }
 
 }
-
-
-

@@ -16,7 +16,7 @@
 }
 
 .mat-column-name {
-    flex: 0 0 30%;
+    flex: 0 0 25%;
 }
 
 .mat-column-phone {
@@ -24,5 +24,9 @@
 }
 
 .mat-column-email {
-    flex: 0 0 35%;
+    flex: 0 0 30%;
+}
+
+.mat-column-birthday {
+    flex: 0 0 10%;
 }
