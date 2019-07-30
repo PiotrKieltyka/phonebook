@@ -3,6 +3,6 @@ export interface PhonebookItemProps {
     name?: string;
     phone?: string;
     email?: string;
-    birthdate?: Date;
+    birthday?: string;
     avatar?: string;
 }

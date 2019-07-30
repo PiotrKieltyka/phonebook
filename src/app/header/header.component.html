@@ -21,7 +21,7 @@
                         class="nav navbar-nav navbar-right"
                         (click)="headerItem.clickHandler ? headerItem.clickHandler() : null"
                         >
-                        <a href="#" class="btn btn-default nav-buttons" routerLinkActive="true" [routerLink]="headerItem.url">{{ headerItem.name }}</a>
+                        <a href="#" [id]="'btn-' + headerItem.url" class="btn btn-default nav-buttons" routerLinkActive="true" [routerLink]="headerItem.url">{{ headerItem.name }}</a>
                     </div>
                 </ng-container>
             </div>

@@ -16,7 +16,6 @@ import { Router } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 import { UserRoles } from '../shared/constants';
 import { MaterialModule } from '../shared/modules/material.module';
-import { CommonModule } from '@angular/common';
 
 // create factory
 export function createAdminOnlyGuard(router: Router, authService: AuthService) {
